@@ -14,19 +14,17 @@ const listarCardapio = (req, res) => {
 
 const buscaPorId = (req, res) => {
   const idEncontrado = parseInt(req.params.id);
-  const itemEncontrado = cardapioOficial.find(
-    (item) => item.id === idEncontrado
-  );
-  return res.status(200).json({
+  const itemEncontrado = cardapioOficial.find((item) => item.id === idEncontrado);
+  if (!itemEncontrado) {
+    return res.status(400).json({
+     mensagem: "Item Inexistente"
+    });
+  }
+  (item) => item.id === idEncontrado
+    return res.status(200).json({
     mensagem: "Item encontrado:",
     item: itemEncontrado,
   });
-
-  if (!itemEncontrado) {
-    return res.status(400).json({
-      mensagem: "Item Inexistente",
-    });
-  }
 };
 
 module.exports = { listarCardapio, buscaPorId };
