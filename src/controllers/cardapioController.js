@@ -26,5 +26,6 @@ const buscaPorId = (req, res) => {
     item: itemEncontrado,
   });
 };
+//teste
 
 module.exports = { listarCardapio, buscaPorId };
