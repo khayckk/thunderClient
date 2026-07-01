@@ -25,7 +25,13 @@ const buscaPorId = (req, res) => {
     mensagem: "Item encontrado:",
     item: itemEncontrado,
   });
+  const adicionarItem = (req, res) => {
+    const { nome, categoria, preco } = req.body;
+    if(!id.nome && id.categoria && id.preco){
+      res.status(400).json({
+        erro:"Pacote rejeitado! Faltam dados."
+      })
+    }
+  }
 };
-//teste
-
 module.exports = { listarCardapio, buscaPorId };
